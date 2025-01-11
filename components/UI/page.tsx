@@ -218,7 +218,7 @@ const Tasks = () => {
             ))}
           </ul>
         ) : (
-          <p className="text-2xl ">No Tasks Available</p>
+          <p className="text-2xl text-black ">No Tasks Available</p>
         )}
       </div>
 
