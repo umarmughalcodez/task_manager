@@ -188,34 +188,38 @@ const Tasks = () => {
           justifyContent: "center",
         }}
       >
-        <ul className="w-full space-y-3">
-          {tasks.map((task) => (
-            <li
-              key={task.id}
-              className="bg-white text-black py-2 px-4 w-[90%] mx-auto rounded-xl flex justify-between items-center shadow-lg"
-            >
-              <span>{task.content}</span>
-              <div className="space-x-4">
-                <button
-                  onClick={() => {
-                    setSelectedTaskId(task.id);
-                    setContent(task.content);
-                    setUpdateFormOpen(true);
-                  }}
-                  className="bg-black text-white text-sm px-2 py-1 hover:scale-105 shadow-md rounded-xl"
-                >
-                  Update
-                </button>
-                <button
-                  onClick={() => handleDeleteTask(task.id)}
-                  className="bg-red-700 text-white text-sm px-2 py-1 hover:scale-105 shadow-md rounded-xl"
-                >
-                  Delete
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+        {tasks?.length > 0 ? (
+          <ul className="w-full space-y-3">
+            {tasks.map((task) => (
+              <li
+                key={task.id}
+                className="bg-white text-black py-2 px-4 w-[90%] mx-auto rounded-xl flex justify-between items-center shadow-lg"
+              >
+                <span>{task.content}</span>
+                <div className="space-x-4">
+                  <button
+                    onClick={() => {
+                      setSelectedTaskId(task.id);
+                      setContent(task.content);
+                      setUpdateFormOpen(true);
+                    }}
+                    className="bg-black text-white text-sm px-2 py-1 hover:scale-105 shadow-md rounded-xl"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() => handleDeleteTask(task.id)}
+                    className="bg-red-700 text-white text-sm px-2 py-1 hover:scale-105 shadow-md rounded-xl"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-2xl ">No Tasks Available</p>
+        )}
       </div>
 
       {/* Loading Indicator */}
