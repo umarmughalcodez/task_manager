@@ -1,0 +1,32 @@
+### get tasks
+
+GET http://localhost:3000/api/tasks
+Content-Type: application/json
+
+### post task
+
+POST http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "content": "Wash the car!"
+}
+
+### patch task
+
+PATCH http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "taskId": "5",
+  "content": "Wash the clothes!"
+}
+
+### delete task
+
+DELETE http://localhost:3000/api/tasks
+Content-Type: application/json
+
+{
+  "taskId": "16"
+}
