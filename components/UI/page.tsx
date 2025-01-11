@@ -64,6 +64,7 @@ const Tasks = () => {
   };
 
   const handleUpdateTask = useCallback(() => {
+    setLoading(true);
     if (content.trim() === "") {
       setError("Please Add some text");
       setTimeout(() => {
@@ -89,11 +90,14 @@ const Tasks = () => {
         setError(null);
       }, 2000);
       throw new Error("Failed to update task");
+    } finally {
+      setLoading(false);
     }
   }, [content, selectedTaskId]);
 
   const fetchTasks = async () => {
     try {
+      setLoading(true);
       const res = await fetch("/api/tasks", {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -107,6 +111,8 @@ const Tasks = () => {
       setTimeout(() => {
         setError(null);
       }, 2000);
+    } finally {
+      setLoading(false);
     }
   };
 
